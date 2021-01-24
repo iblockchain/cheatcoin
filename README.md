@@ -1,65 +1,36 @@
-The cheatcoin cryptocurrency
-============================
-
-- Official site: http://cheatcoin.atwebpages.com
-- Test net is running.
-- The launch of the main net is scheduled for January 5, 2018 at 22:45 GMT. 
-
+The Dagger (XDAG) cryptocurrency
+================================
+- Community site: https://xdag.io  
+- The Main net was launched January 5, 2018 at 22:45 GMT  
 
 Principles:
 ----------
 
-- Directed acyclic graph (DAG), not blockchain
-- Block = transaction = address
-- Original main chain idea
-- Mineable, no premine, no ICO
-- Mining new money every 64 seconds
+- Directed acyclic graph (DAG), not blockchain  
+- Block = transaction = address  
+- Original idea and implementation  
+- Mineable, no premine, no ICO  
+- Mining new money every 64 seconds  
+
+Status:
+----------
+
+[![Throughput Graph](https://graphs.waffle.io/XDagger/xdag/throughput.svg)](https://waffle.io/XDagger/xdag/metrics/throughput)
 
 
-Install and run (Linux):
------------------------
+HOW-TO:  
+----------
 
-- Install dependencies:
+- [How to get a wallet](https://github.com/XDagger/xdag/wiki/Get-a-wallet)  
+- [How to getting started](https://github.com/XDagger/xdag/wiki/Getting-started)  
+- [How to find pools](https://github.com/XDagger/xdag/wiki/Mineable-Pool-List)  
+- [How to contribute](https://github.com/XDagger/xdag/blob/master/Contributing.md)  
 
-		$ sudo dnf install git gcc openssl-devel
-		or
-		$ sudo apt-get install git gcc libssl-dev
-
-- Clone from the git repository:
-
-        $ git clone https://github.com/cheatoshin/cheatcoin.git
-
-- Make:
-
-        $ cd cheatcoin/cheatcoin
-        $ make
-
-- Run, for example, the miner with 2 CPU mining threads, in daemon mode, connected to the pool 52.5.32.68:13654
-  (for testnet the -t flag is also to be added):
-
-        $ ./cheatcoin -m 2 -d 52.5.32.68:13654
-        Enter random characters: [enter]
-
-- Run terminal connected to the daemon in the same folder:
-
-        $ cheatcoin -i
-        cheatcoin> help
-        [see help]
-
-- See your balance:
-
-        cheatcoin> balance
-        [balance]
-
-- See your address:
-
-        cheatcoin> account
-        [address]
-
-- Transfer funds to another address:
-
-        cheatcoin> xfer [amount] [address]
-
+Docs:  
+----------
+- [Whitepaper](https://github.com/XDagger/xdag/blob/master/WhitePaper.md)  [中文版](https://github.com/XDagger/xdag/blob/master/WhitePaper%20zh-cn.md)  
+- [Protocol](https://github.com/XDagger/xdag/blob/master/Protocol.md)  [中文版](https://github.com/XDagger/xdag/blob/master/Protocol-cn.md)  
+- [License](https://github.com/XDagger/xdag/blob/master/LICENSE)  
 
 Main chain idea:
 ---------------
@@ -73,11 +44,11 @@ _Difficulty_of_chain_ is sum of difficulties of blocks.
 _Main_chain_ is the distinct chain with maximum difficulty.
 Blocks in main chain are called _main_blocks_.
 
-Cheatcoins are mined in every main block.
-For first 4 years 1024 cheatcoins are mined in each main block.
-For second 4 years - 512 cheatcoins, and so on.
-So, maximum cheatcoins supply is approximately power(2,32).
-Each cheatcoin is equal to power(2,32) cheatoshi.
+Daggers are mined in every main block.
+For first 4 years 1024 XDAG are mined in each main block.
+For second 4 years - 512 XDAG, and so on.
+So, maximum XDAG supply is approximately power(2,32).
+Each dagger is equal to power(2,32) cheatoshino.
 Transaction is _valid_ if it is referenced by a main block.
 Valid transactions are strictly ordered depending on main chain and links order.
 Double spending is prohibited because only first concurrent transaction (by this order) is applied.
@@ -86,8 +57,9 @@ Double spending is prohibited because only first concurrent transaction (by this
 Structure of block:
 ------------------
 
-Each block has fixed size 512 bytes.
-Block consists of 16 fields each of whish has length 32 bytes.
+_The on-disk format will change in the future. Consider this the network protocol._
+Each block has a fixed size of 512 bytes.
+Block consists of 16 fields each of which has length 32 bytes.
 Field 0 is header, it consists of 4 quadwords:
 - transport-layer header
 - types of all 16 fields, 4 bits for one type
@@ -111,3 +83,12 @@ Transport layer:
 ---------------
 
 The dnet network is used as transport layer.
+_A new transport layer will come in the future._
+
+
+Maintainers:
+---------------
+[Evgeniy](https://github.com/jonano614) ( XDAG: gKNRtSL1pUaTpzMuPMznKw49ILtP6qX3, BTC: 1Jonano4esJzZvqNtUY6NwfPme3EMpVs7n )  
+[Frozen](https://github.com/xrdavies) ( XDAG: +L5dzSh1QZv1We3wi8Of31M8eHwQJq4K ) 
+
+[Full list of contributors](https://github.com/XDagger/xdag/blob/master/CONTRIBUTORS.md)  

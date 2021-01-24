@@ -23,7 +23,7 @@ enum dnet_packet_types {
 	DNET_PKT_FORWARDED_UDP	= 0x88,
 	DNET_PKT_FILE_OP		= 0x89,
 	DNET_PKT_CRYPT			= 0x8A,
-	DNET_PKT_CHEATCOIN		= 0x8B,
+	DNET_PKT_XDAG		= 0x8B,
 	DNET_PKT_MAX			= 0x8B,
 };
 
@@ -83,9 +83,17 @@ struct dnet_packet {
 
 struct dnet_connection;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 extern int dnet_process_packet(struct dnet_packet *p, struct dnet_connection *conn);
 extern int dnet_send_packet(struct dnet_packet *p, struct dnet_connection *conn);
 extern int dnet_send_command_packet(struct dnet_packet_stream *st, struct dnet_output *output);
 extern int dnet_cancel_command(struct dnet_output *output);
+
+#ifdef __cplusplus
+};
+#endif
 
 #endif
